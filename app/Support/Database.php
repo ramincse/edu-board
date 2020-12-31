@@ -1,11 +1,11 @@
 <?php 
+	namespace Edu\Board\Support;  
+	use PDO;
+
 	/**
 	 * Include config file
 	 */
-	require_once "../../config.php";
-
-	namespace Edu\Board\Support;  
-	use PDO;
+	//require_once "../config.php";
 
 	/**
 	 * Database Management 
