@@ -30,7 +30,7 @@
                 if ( empty($email_uname) || empty($pass) ) {
                     $mess = '<p class="alert alert-danger">All fields are required !<button class="close" data-dismiss="alert">&times;</button></p>';
                 }else{
-                    $auth -> userLoginSystem($email_uname, $pass);
+                    $mess = $auth -> userLoginSystem($email_uname, $pass);
                 }
             } // End of Login form isseting
         ?>
