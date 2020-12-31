@@ -17,12 +17,19 @@
 
 			$num = $data['num'];
 			$login_user_data = $data['data'] -> fetch(PDO::FETCH_ASSOC);
-			$login_user_data['name'];
 
 			//Email or Uname
 			if ( $num == 1 ) {
 				//Password
 				if ( password_verify($pass, $login_user_data['pass']) ) {
+					$_SESSION['id'] 	= $login_user_data['id']; 
+					$_SESSION['name'] 	= $login_user_data['name'];
+					$_SESSION['uname'] 	= $login_user_data['uname'];
+					$_SESSION['email'] 	= $login_user_data['email'];
+					$_SESSION['cell'] 	= $login_user_data['cell'];
+					$_SESSION['photo'] 	= $login_user_data['photo'];
+					$_SESSION['role'] 	= $login_user_data['role'];
+
 					header('location:dashboard.php');
 				}else{
 					return '<p class="alert alert-warning">Wrong password !<button class="close" data-dismiss="alert">&times;</button></p>';
