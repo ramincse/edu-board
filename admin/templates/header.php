@@ -1,6 +1,18 @@
 <?php
-require_once "../config.php";
-require_once "../vendor/autoload.php";
+    require_once "../config.php";
+    require_once "../vendor/autoload.php";
+
+    use Edu\Board\Support\Auth;
+
+    $auth = new Auth; 
+?>
+<?php 
+    /**
+     * Logout System
+     */
+    if ( isset($_GET['logout']) AND $_GET['logout'] == 'success' ) {
+        $auth -> userLogout();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en" class="app">
@@ -26,18 +38,18 @@ require_once "../vendor/autoload.php";
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <span class="thumb-sm avatar pull-left">
                                 <img src="images/<?php echo $_SESSION['photo']; ?>" alt="...">
-                            </span> <?php echo $_SESSION['name']; ?><b class="caret"></b>
+                            </span><?php echo $_SESSION['name']; ?><b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight">
                             <li> <span class="arrow top"></span> <a href="#">Settings</a> </li>
                             <li> <a href="profile.html">Profile</a> </li>                                
                             <li class="divider"></li>
-                            <li> <a href="modal.lockme.html" data-toggle="ajaxModal">Logout</a> </li>
+                            <li><a href="?logout=success">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
             </header>
-            
+
             <section>
                 <section class="hbox stretch">
                     <?php include_once "templates/menu.php"; ?>
