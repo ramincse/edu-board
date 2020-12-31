@@ -1,4 +1,4 @@
-<?php
+<?php 
 	namespace Edu\Board\Support;  
 
 	/**
