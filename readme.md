@@ -45,3 +45,12 @@ abstract class Database
 	}
 }
 ```
+### Logout System
+```html
+<a href="?logout=success">Logout</a>
+```
+```php
+if ( isset($_GET['logout']) AND $_GET['logout'] == 'success' ) {
+        $auth -> userLogout();
+    }
+```
