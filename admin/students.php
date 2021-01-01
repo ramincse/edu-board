@@ -14,30 +14,18 @@
                     <section class="row m-b-md">
                         <div class="col-sm-6">
                             <h3 class="m-b-xs text-black">All Students</h3> <small>Welcome back, <?php echo $_SESSION['name']; ?>, <i class="fa fa-map-marker fa-lg text-primary"></i><?php echo $_SESSION['email']; ?></small>
-                        </div>
-                        <!-- <div class="col-sm-6 text-right text-left-xs m-t-md">
-                            <div class="btn-group">
-                                <a class="btn btn-rounded btn-default b-2x dropdown-toggle" data-toggle="dropdown">Widgets <span class="caret"></span></a>
-                                <ul class="dropdown-menu text-left pull-right">
-                                    <li><a href="#">Notification</a></li>
-                                    <li><a href="#">Messages</a></li>
-                                    <li><a href="#">Analysis</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">More settings</a></li>
-                                </ul>  
-                            </div> 
-                        </div>  -->                                        
+                        </div>                                      
                     </section>
 
                 <!-- = = = = = = = = = Our Page Content = = = = = = = = = -->
 <!-- = = = = = = = = = Add new user Modal = = = = = = = = = --> 
-<div id="add_user_modal" class="modal fade">
+<div id="add_student_modal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- <div class="modal-header"></div> -->
             <div class="modal-body">
                 <h2>Add new student</h2>
-                <div class="mess"></div>
+                <div class="student-mess"></div>
                 <hr>
                 <form id="add_student_form" action="" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
@@ -45,12 +33,80 @@
                         <input name="name" class="form-control" type="text">
                     </div>
                     <div class="form-group">
-                        <label for="">Email</label>
-                        <input name="email" class="form-control" type="text">
+                        <label for="">Roll</label>
+                        <input name="roll" class="form-control" type="text">
                     </div>
                     <div class="form-group">
-                        <label for="">Cell</label>
-                        <input name="cell" class="form-control" type="text">
+                        <label for="">Reg</label>
+                        <input name="reg" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Board</label>
+                        <select name="board" id="" class="form-control">
+                            <option value="" selected="">-select-</option>
+                            <option value="barisal">Barisal</option>
+                            <option value="chittagong">Chittagong</option>
+                            <option value="comilla">Comilla</option>
+                            <option value="dhaka">Dhaka</option>
+                            <option value="dinajpur">Dinajpur</option>
+                            <option value="jessore">Jessore</option>
+                            <option value="rajshahi">Rajshahi</option>
+                            <option value="sylhet">Sylhet</option>
+                            <option value="madrasah">Madrasah</option>
+                            <option value="tec">Technical</option>
+                            <option value="dibs">DIBS(Dhaka)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Institute</label>
+                        <input name="inst" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Exam</label>
+                        <select name="exam" id="" class="form-control">
+                            <option value="0000" selected="">-select-</option>
+                            <option value="hsc">HSC/Alim/Equivalent</option>
+                            <option value="jsc">JSC/JDC</option>
+                            <option value="ssc">SSC/Dakhil</option>
+                            <option value="ssc_voc">SSC(Vocational)</option>
+                            <option value="hsc">HSC/Alim</option>
+                            <option value="hsc_voc">HSC(Vocational)</option>
+                            <option value="hsc_hbm">HSC(BM)</option>
+                            <option value="hsc_dic">Diploma in Commerce</option>
+                            <option value="hsc">Diploma in Business Studies</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">Year</label>
+                        <select name="year" id="" class="form-control">
+                            <option value="0000" selected="">-select-</option>
+                            <option value="2019">2021</option>
+                            <option value="2019">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="">Photo</label>
@@ -68,7 +124,8 @@
 <!-- = = = = = = = = = All Users = = = = = = = = = -->               
 <div class="row">
     <div class="col-sm-12">
-        <a id="add_user_btn" class="btn btn-sm btn-primary" href="">Add new student</a>
+        <div class="mess"></div>
+        <a id="add_student_btn" class="btn btn-sm btn-primary" href="">Add new student</a>
         <br>
         <br>
         <section class="panel panel-default">

@@ -25,7 +25,7 @@
         <td>
             <a class="btn btn-sm btn-info" href="">View</a>
             <a class="btn btn-sm btn-warning" href="">Edit</a>
-            <a class="btn btn-sm btn-danger" href="">Delete</a>
+            <a id="delete_user" user_id="<?php echo $single_data['id']; ?>" class="btn btn-sm btn-danger" href="">Delete</a>
         </td>
     </tr>
 <?php endforeach; ?>

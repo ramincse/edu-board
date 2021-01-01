@@ -46,5 +46,17 @@
 			$data = $this -> all('users');
 			return $data;
 		}
+
+		/**
+		 * User Delete
+		 */
+		public function userDelete($id)
+		{
+			$data = $this -> delete('users', $id);
+
+			if ( $data ) {
+				return true;
+			}
+		}
 	}
 ?>

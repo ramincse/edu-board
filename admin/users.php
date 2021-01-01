@@ -96,9 +96,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody id="all_users_tbody">
-
-                    
+                <tbody id="all_users_tbody">                    
 
 
                 </tbody>
