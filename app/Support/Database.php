@@ -31,28 +31,57 @@
 		}
 
 		/**
-		 * Data Check
+		 * Data Create
 		 */
-		public function dataCheck($tbl, $data)
+		public function create()
 		{
-			$stmt = $this -> connection() -> prepare("SELECT * FROM $tbl WHERE email='$data' || uname ='$data' ");
-			$stmt -> execute();
-			$num = $stmt -> rowCount();
-
-			return [
-				'num' 	=> $num,
-				'data' 	=> $stmt,
-			];
+			
 		}
 
 		/**
-		 * Single Data Check
+		 * Data Find by ID
 		 */
-		public function dataCheckPro($tbl, array $data, $condition = 'AND')
+		public function find($id)
+		{
+			
+		}
+
+		/**
+		 * Delete Data by ID
+		 */
+		public function delete($id)
+		{
+			
+		}
+
+		/**
+		 * Data Show All
+		 */
+		public function all($tbl)
+		{
+			
+		}
+
+		/**
+		 * Data Check
+		 */
+		// public function dataCheck($tbl, $data)
+		// {
+		// 	$stmt = $this -> connection() -> prepare("SELECT * FROM $tbl WHERE email='$data' || uname ='$data' ");
+		// 	$stmt -> execute();
+		// 	$num = $stmt -> rowCount();
+
+		// 	return [
+		// 		'num' 	=> $num,
+		// 		'data' 	=> $stmt,
+		// 	];
+		// }
+
+		public function dataCheck($tbl, array $data, $condition = 'AND')
 		{
 			$query_string = '';
 			foreach ($data as $key => $val) {
-				$query_string .= $key . "='$val' AND ";
+				$query_string .= $key . "='$val' $condition ";
 			}
 			$query_array = explode(' ', $query_string);
 			array_pop($query_array);
@@ -64,7 +93,12 @@
 			$stmt = $this -> connection() -> prepare("SELECT * FROM $tbl WHERE $final_query_string");
 			$stmt -> execute();
 
-			echo $stmt -> rowCount();
+			$num = $stmt -> rowCount();
+
+			return [
+				'num' 	=> $num,
+				'data' 	=> $stmt,
+ 			];
 		}
 
 		/**

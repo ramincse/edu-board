@@ -50,8 +50,8 @@ abstract class Database
 <a href="?logout=success">Logout</a>
 ```
 ```php
-	use Edu\Board\Support\Auth;
-    $auth = new Auth; 
+use Edu\Board\Support\Auth;
+$auth = new Auth; 
     
 if ( isset($_GET['logout']) AND $_GET['logout'] == 'success' ) {
         $auth -> userLogout();

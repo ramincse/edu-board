@@ -41,7 +41,7 @@
                             </span><?php echo $_SESSION['name']; ?><b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight">
-                            <li> <span class="arrow top"></span> <a href="password_change.php">Settings</a> </li>
+                            <li> <span class="arrow top"></span> <a href="password_change.php">Change Password</a> </li>
                             <li> <a href="profile.html">Profile</a> </li>                                
                             <li class="divider"></li>
                             <li><a href="?logout=success">Logout</a></li>
