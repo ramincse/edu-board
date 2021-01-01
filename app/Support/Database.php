@@ -77,9 +77,12 @@
 		/**
 		 * Data Show All
 		 */
-		public function all($tbl)
+		public function all($tbl, $order = 'DESC')
 		{
-			
+			$sql = "SELECT * FROM $tbl ORDER BY id $order";
+			$stmt = $this -> connection() -> prepare($sql);
+			$stmt -> execute();
+			return $stmt;
 		}
 
 		/**

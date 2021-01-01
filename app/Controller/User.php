@@ -37,5 +37,14 @@
 
 			return '<p class="alert alert-success">Password change successfull !<button class="close" data-dismiss="alert">&times;</button></p>';
 		}
+
+		/**
+		 * Show All User
+		 */
+		public function allUser()
+		{
+			$data = $this -> all('users');
+			return $data;
+		}
 	}
 ?>

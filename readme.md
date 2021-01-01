@@ -225,3 +225,73 @@ public function create($table, $data)
 ```html
 <div class="mess"></div>
 ```
+### Show All Data
+```js
+function allUsers(){
+	$.ajax({
+		url : 'templates/ajax/user_all.php',
+		success : function(data){
+			$('tbody#all_users_tbody').html(data);
+		}
+	});
+}
+allUsers();
+```
+```php
+/**
+ * At user_all.php page
+ */
+require_once "../../../config.php";
+require_once "../../../vendor/autoload.php";
+
+use Edu\Board\Controller\User;
+$user = new User;
+
+$data = $user -> allUser();
+
+$all_data = $data -> fetchAll();
+
+$i = 1;
+foreach ($all_data as $single_data) :
+```
+```html
+<tr>
+    <td><?php echo $i; $i++; ?></td>
+    <td><?php echo $single_data['name']; ?></td>
+    <td><?php echo $single_data['email']; ?></td>
+    <td><?php echo $single_data['cell']; ?></td>
+    <td><?php echo $single_data['role']; ?></td>
+    <td>
+        <img style="width: 50px; height: 50px; display: block;" src="images/<?php echo $single_data['photo']; ?>" alt="">
+    </td>
+    <td><?php echo $single_data['status']; ?></td>
+    <td>
+        <a class="btn btn-sm btn-info" href="">View</a>
+        <a class="btn btn-sm btn-warning" href="">Edit</a>
+        <a class="btn btn-sm btn-danger" href="">Delete</a>
+    </td>
+</tr>
+```
+```php
+endforeach;
+/**
+ * At user.php Class
+ */
+public function allUser()
+{
+	$data = $this -> all('users');
+	return $data;
+}
+
+/**
+ * Data Show All
+ */
+public function all($tbl, $order = 'DESC')
+{
+	$sql = "SELECT * FROM $tbl ORDER BY id $order";
+	$stmt = $this -> connection() -> prepare($sql);
+	$stmt -> execute();
+	return $stmt;
+}
+```
+
