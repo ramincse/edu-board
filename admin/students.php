@@ -135,31 +135,20 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Cell</th>
-                        <th>Role</th>
-                        <th>photo</th>
+                        <th>Roll</th>
+                        <th>Registration</th>
+                        <th>Board</th>
+                        <th>Institute</th>
+                        <th>Exam</th>
+                        <th>Year</th>
+                        <th>Photo</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Ruhul</td>
-                        <td>ruhul@gmail.com</td>
-                        <td>99999</td>
-                        <td>Admin</td>
-                        <td>
-                            <img style="width: 50px; height: 50px; display: block;" src="images/avatar.jpg" alt="">
-                        </td>
-                        <td>Active</td>
-                        <td>
-                            <a class="btn btn-sm btn-info" href="">View</a>
-                            <a class="btn btn-sm btn-warning" href="">Edit</a>
-                            <a class="btn btn-sm btn-danger" href="">Delete</a>
-                        </td>
-                    </tr>
+                <tbody id="all_student">
+                    
+
                 </tbody>
             </table>
         </section>

@@ -79,7 +79,7 @@
 			return false;
 		});
 
-		//
+		//Add new student
 		$(document).on('submit', 'form#add_student_form', function(e){
 			e.preventDefault();
 
@@ -100,14 +100,22 @@
 						$('form#add_student_form')[0].reset();
 						$('#add_student_modal').modal('hide');
 						$('.mess').html('<p class="alert alert-success">Student added successfull !<button class="close" data-dismiss="alert">&times;</button></p>');
+						allStudent();
 					},
 				});
 			}
-			//alert(name + roll + reg);
 		});
 
-
-
+		//Show all student
+		function allStudent(){
+			$.ajax({
+				url : 'templates/ajax/student_all.php',
+				success : function(data){
+					$('tbody#all_student').html(data);
+				},
+			});
+		}
+		allStudent();
 
 
 
