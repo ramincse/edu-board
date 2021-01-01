@@ -33,9 +33,29 @@
 		/**
 		 * Data Create
 		 */
-		public function create()
+		public function create($table, $data)
 		{
-			
+			//Make SQL Column from data
+			$array_key = array_keys($data);
+			$array_col = implode(',', $array_key);
+
+			//Make SQL Values from data
+			$array_val 		= array_values($data);
+			foreach ($array_val as $value) {
+				$form_value[] = "'" . $value . "'";
+			}
+			$array_values 	= implode(',', $form_value);
+
+			//Data sent to student table
+			$sql = "INSERT INTO $table ($array_col) VALUES ($array_values) ";
+			$stmt = $this -> connection() -> prepare($sql);
+			$stmt -> execute();
+
+			if ( $stmt ) {
+				return true;
+			}else{
+				return false;
+			}
 		}
 
 		/**

@@ -39,7 +39,7 @@
                 <h2>Add new user</h2>
                 <div class="mess"></div>
                 <hr>
-                <form id="add_student_form" action="" method="POST" enctype="multipart/form-data">
+                <form id="add_user_form" action="" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="">Name</label>
                         <input name="name" class="form-control" type="text">
@@ -77,6 +77,7 @@
 <!-- = = = = = = = = = All Users = = = = = = = = = -->               
 <div class="row">
     <div class="col-sm-12">
+        <div class="mess"></div>
         <a id="add_user_btn" class="btn btn-sm btn-primary" href="">Add new user</a>
         <br>
         <br>

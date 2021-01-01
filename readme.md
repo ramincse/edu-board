@@ -128,3 +128,100 @@ public function update($tbl, $id, array $data)
 	$stmt -> execute();
 }
 ```
+### Data Insert by Ajax
+```js
+(function($){
+	$(document).ready(function(){
+		//Dash Menu Active
+		// $(document).on('click', 'ul#dashmenu li', function(){
+		// 	$('ul#dashmenu li').removeClass('active');
+		// 	$(this).addClass('active');
+		// });
+
+		//Add new user modal
+		$(document).on('click', 'a#add_user_btn', function(){
+			$('#add_user_modal').modal('show');
+
+			return false;
+		});
+
+		//Add new user form submit
+		$(document).on('submit', 'form#add_user_form', function(event){
+			event.preventDefault();
+
+			$.ajax({
+				url : 'templates/ajax/user_add.php',
+				method : "POST",
+				data : new FormData(this),
+				contentType : false,
+				processData : false,
+				success : function(data){
+					$('form#add_user_form')[0].reset();
+					$('#add_user_modal').modal('hide');
+					$('.mess').html(data);
+				},
+			});
+		});
+	});
+})(jQuery)
+```
+```php
+	require_once "../../../config.php";
+	require_once "../../../vendor/autoload.php";
+
+	use Edu\Board\Controller\User;
+	$user = new User;
+
+	$data = $user -> createUser($_POST);
+	echo $data;
+
+/**
+ * User Add
+ */
+public function createUser($data)
+{
+	$data = $this -> create('users', [
+		'name' 	=> $data['name'],
+		'uname' => $data['uname'],
+		'email' => $data['email'],
+		'cell' 	=> $data['cell'],
+		'pass' 	=> password_hash('login', PASSWORD_DEFAULT),
+		'role' 	=> $data['role'],
+	]);
+
+	if ( $data ) {
+		return '<p class="alert alert-success">User created successfull !<button class="close" data-dismiss="alert">&times;</button></p>';
+	}
+}
+
+/**
+ * Data Create
+ */
+public function create($table, $data)
+{
+	//Make SQL Column from data
+	$array_key = array_keys($data);
+	$array_col = implode(',', $array_key);
+
+	//Make SQL Values from data
+	$array_val 		= array_values($data);
+	foreach ($array_val as $value) {
+		$form_value[] = "'" . $value . "'";
+	}
+	$array_values 	= implode(',', $form_value);
+
+	//Data sent to student table
+	$sql = "INSERT INTO $table ($array_col) VALUES ($array_values) ";
+	$stmt = $this -> connection() -> prepare($sql);
+	$stmt -> execute();
+
+	if ( $stmt ) {
+		return true;
+	}else{
+		return false;
+	}
+}
+```
+```html
+<div class="mess"></div>
+```
