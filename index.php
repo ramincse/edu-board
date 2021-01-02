@@ -23,12 +23,13 @@
 		</div>
 		<div class="w-main">
 			<div class="search-result">
-				<form action="">
+				<form action="search.php" method="POST">
 					<table>
 					<tr>
 						<td>Examination</td>
 						<td>
-							<select>
+							<select name="exam">
+								<option value=""selected>-select-</option>
 	                            <option value="hsc">HSC/Alim/Equivalent</option>
 	                            <option value="jsc">JSC/JDC</option>
 	                            <option value="ssc">SSC/Dakhil</option>
@@ -44,8 +45,10 @@
 					<tr>
 						<td>Year</td>
 						<td>
-							<select>
-                            <option value="0000" selected>Select One</option>
+							<select name="year">
+                            <option value="0000" selected>-select-</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
@@ -76,8 +79,8 @@
 					<tr>
 						<td>Board</td>
 						<td>
-						 	<select>
-		                          <option value=""selected>Select One</option>
+						 	<select name="board">
+		                          <option value=""selected>-select-</option>
 								  <option value="barisal">Barisal</option>
 								  <option value="chittagong">Chittagong</option>
 								  <option value="comilla">Comilla</option>
@@ -94,15 +97,18 @@
 					</tr>
 					<tr>
 						<td> Roll</td>
-						<td><input type="text"></td>
+						<td><input name="roll" type="text"></td>
 					</tr>
 					<tr>
 						<td> Reg: No</td>
-						<td><input type="text"></td>
+						<td><input name="reg" type="text"></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td><input type="reset" value="reset"><input type="submit" value="submit"></td>
+						<td>
+							<input name="" type="reset" value="reset">
+							<input name="result" type="submit" value="submit">
+						</td>
 					</tr>
 				</table>
 				</form>
