@@ -31,30 +31,43 @@
 
                 <!-- = = = = = = = = = Our Page Content = = = = = = = = = -->
 <!-- = = = = = = = = = Add new user Modal = = = = = = = = = --> 
-<div id="add_user_modal" class="modal fade">
+<div id="add_result_modal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- <div class="modal-header"></div> -->
             <div class="modal-body">
-                <h2>Add new result</h2>
+                <h2>Add result</h2>
                 <div class="mess"></div>
                 <hr>
                 <form id="add_student_form" action="" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="">Name</label>
-                        <input name="name" class="form-control" type="text">
+                        <label for="">Search student</label>
+                        <input id="search_student" name="search" class="form-control" type="text">
+                        <div class="stu_reg"></div>
                     </div>
                     <div class="form-group">
-                        <label for="">Email</label>
+                        <label for="">Bangla</label>
                         <input name="email" class="form-control" type="text">
                     </div>
                     <div class="form-group">
-                        <label for="">Cell</label>
+                        <label for="">English</label>
                         <input name="cell" class="form-control" type="text">
                     </div>
                     <div class="form-group">
-                        <label for="">Photo</label>
-                        <input name="photo" class="" type="file">
+                        <label for="">Math</label>
+                        <input name="cell" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Social Science</label>
+                        <input name="email" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Science</label>
+                        <input name="cell" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Religion</label>
+                        <input name="cell" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <input name="submit" class="btn btn-sm btn-primary" type="submit" value="Add result">
@@ -68,7 +81,7 @@
 <!-- = = = = = = = = = All Users = = = = = = = = = -->               
 <div class="row">
     <div class="col-sm-12">
-        <a id="add_user_btn" class="btn btn-sm btn-primary" href="">Add new result</a>
+        <a id="add_result_btn" class="btn btn-sm btn-primary" href="">Add student result</a>
         <br>
         <br>
         <section class="panel panel-default">

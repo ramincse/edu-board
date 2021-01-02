@@ -172,5 +172,16 @@
 			$stmt = $this -> connection() -> prepare("UPDATE $tbl SET $final_query_string WHERE id='$id'");
 			$stmt -> execute();
 		}
+
+		/**
+		 * Custom Query
+		 */
+		public function customQuery($query)
+		{
+			$sql = $query;
+			$stmt = $this -> connection() -> prepare($sql);
+			$stmt -> execute();
+			return $stmt;
+		}
 	} //End of abstract class Database
 ?>

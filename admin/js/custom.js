@@ -117,8 +117,28 @@
 		}
 		allStudent();
 
+		/**
+		 * Result Management
+		 */
+		 //Add Result modal
+		$(document).on('click', 'a#add_result_btn', function(){
+			$('#add_result_modal').modal('show');
 
+			return false;
+		});
 
+		$(document).on('keyup', 'input#search_student', function(){
+			let stu_val = $(this).val();
+
+			$.ajax({
+				url : 'templates/ajax/student_search.php',
+				method : "POST",
+				data : { stu_val : stu_val },
+				success : function(data){
+					$('.stu_reg').html(data);
+				},
+			});			
+		});
 
 
 	});
