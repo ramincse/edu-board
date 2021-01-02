@@ -39,35 +39,40 @@
                 <h2>Add result</h2>
                 <div class="mess"></div>
                 <hr>
-                <form id="add_student_form" action="" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="">Search student</label>
-                        <input id="search_student" name="search" class="form-control" type="text">
-                        <div class="stu_reg"></div>
+                <div class="student-reg-data">
+                    <img style="width: 80px;height: 80px;display: block; margin: auto;" src="" alt="">
+                    <h3 class="text-center"></h3>
+                    <h4 class="text-center"></h4>
+                </div>
+                <form id="add_student_result" action="" method="POST">
+                    <div class="form-group">                        
+                        <label id="idstudent" for="">Search student</label>
+                        <input id="search_student" name="student_id" class="form-control" type="text"> 
+                        <div class="stu_reg"></div>                       
                     </div>
                     <div class="form-group">
                         <label for="">Bangla</label>
-                        <input name="email" class="form-control" type="text">
+                        <input name="ban" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <label for="">English</label>
-                        <input name="cell" class="form-control" type="text">
+                        <input name="eng" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <label for="">Math</label>
-                        <input name="cell" class="form-control" type="text">
+                        <input name="math" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <label for="">Social Science</label>
-                        <input name="email" class="form-control" type="text">
+                        <input name="ss" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <label for="">Science</label>
-                        <input name="cell" class="form-control" type="text">
+                        <input name="s" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <label for="">Religion</label>
-                        <input name="cell" class="form-control" type="text">
+                        <input name="rel" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <input name="submit" class="btn btn-sm btn-primary" type="submit" value="Add result">
@@ -84,6 +89,7 @@
         <a id="add_result_btn" class="btn btn-sm btn-primary" href="">Add student result</a>
         <br>
         <br>
+        <div class="mess"></div>
         <section class="panel panel-default">
             <header class="panel-heading"><span class="label bg-danger pull-right m-t-xs">4 left</span>All results</header>
             <table class="table table-striped m-b-none">

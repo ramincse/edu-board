@@ -7,7 +7,14 @@
 		// $(document).on('click', 'ul#dashmenu li', function(){
 		// 	$('ul#dashmenu li').removeClass('active');
 		// 	$(this).addClass('active');
-		// });
+		// });  sayed sodrul shuvo
+
+		/**
+		 * Message Alert Function
+		 */
+		function msgAlert(msg, type = 'success'){
+			return '<p class="alert alert-' + type + '">' + msg + ' !<button class="close" data-dismiss="alert">&times;</button></p>';
+		}
 
 		//Add new user modal
 		$(document).on('click', 'a#add_user_btn', function(){
@@ -120,6 +127,7 @@
 		/**
 		 * Result Management
 		 */
+
 		 //Add Result modal
 		$(document).on('click', 'a#add_result_btn', function(){
 			$('#add_result_modal').modal('show');
@@ -127,6 +135,7 @@
 			return false;
 		});
 
+		//Student Search
 		$(document).on('keyup', 'input#search_student', function(){
 			let stu_val = $(this).val();
 
@@ -140,6 +149,53 @@
 			});			
 		});
 
+		//Select a Student
+		$('.student-reg-data').hide();
+		$(document).on('click', 'li#student_select', function(){
+			//Get all values
+			let stu_id 		= $(this).attr('student_id');
+			let stu_name 	= $(this).attr('student_name');
+			let stu_roll 	= $(this).attr('student_roll');
+			let stu_reg 	= $(this).attr('student_reg');
+			let stu_pic 	= $(this).attr('student_pic');
+
+			//Set Values
+			$('input#search_student').val(stu_id);			
+			$('.stu_reg').hide();
+			$('label#idstudent').text('student ID');
+			$('input#search_student').attr('disabled', '');
+
+			//Single student data
+			$('.student-reg-data').show();
+			$('.student-reg-data img').attr('src', 'students/' + stu_pic);
+			$('.student-reg-data h3').html(stu_name);
+			$('.student-reg-data h4').html("<strong>Roll - </strong>" + stu_roll + ",<strong> Reg - </strong>" + stu_reg);		
+		}); 
+
+		//Student Result submit
+		$(document).on('submit', 'form#add_student_result', function(e){
+			e.preventDefault();
+			$('input#search_student').removeAttr('disabled');
+
+				$.ajax({
+					url : 'templates/ajax/result_add.php',
+					method : "POST",
+					data : new FormData(this),
+					contentType : false,
+					processData : false,
+					success : function(data){
+						$('form#add_student_result')[0].reset()
+						$('.student-reg-data').hide();
+						$('#add_result_modal').modal('hide');
+						$('.mess').html( msgAlert('Result added successfull') );
+						//alert(data);
+						// ;
+						// $('#add_student_modal').modal('hide');
+						// 
+						// allStudent();
+					},
+				});		
+		});
 
 	});
 })(jQuery)

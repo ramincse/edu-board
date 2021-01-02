@@ -1,0 +1,14 @@
+.stu_reg {
+	position: relative;
+}
+.stu_reg ul {
+	position: absolute;
+	background-color: #fff;
+	width: 100%;
+	padding: 10px !important;
+	box-shadow: 0px 0px 5px #ccc;
+}
+.stu_reg ul li:hover {
+	background-color: #dfe6e9;
+	cursor: pointer;
+}
